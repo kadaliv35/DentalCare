@@ -37,7 +37,7 @@ function App() {
     <Routes>
       <Route 
         path="/login" 
-        element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <LoginPage />} 
+        element={isAuthenticated ? <Navigate to="/dashboard\" replace /> : <LoginPage />} 
       />
       
       <Route 
@@ -48,7 +48,7 @@ function App() {
           </ProtectedRoute>
         }
       >
-        <Route index element={<Navigate to="/dashboard" replace />} />
+        <Route index element={<Navigate to="/dashboard\" replace />} />
         <Route path="dashboard" element={<DashboardPage />} />
         <Route path="patients" element={<PatientsPage />} />
         <Route path="patients/:id" element={<PatientDetailPage />} />
