@@ -9,3 +9,5 @@ const navigation = [
   { name: 'Pharmacy', href: '/pharmacy', icon: Pill },
   { name: 'Reports', href: '/reports', icon: BarChart3 },
 ];
+
+export default navigation
