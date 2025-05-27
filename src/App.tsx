@@ -11,3 +11,5 @@ import ReportsPage from './pages/ReportsPage';
 import PatientDetailPage from './pages/PatientDetailPage';
 import PharmacyPage from './pages/PharmacyPage';
 import NotFoundPage from './pages/NotFoundPage';
+
+export default NotFoundPage
