@@ -191,19 +191,40 @@ export const pharmacyCustomers = {
 
 export const reports = {
   getPatientStatistics: async (filter: any) => {
-    const response = await api.get('/reports/patients', { params: filter });
+    // Convert dates to LocalDateTime format expected by the backend
+    const params = {
+      ...filter,
+      startDate: `${filter.startDate}T00:00:00`,
+      endDate: `${filter.endDate}T23:59:59`
+    };
+    const response = await api.get('/reports/patients', { params });
     return response.data;
   },
   getAppointmentStatistics: async (filter: any) => {
-    const response = await api.get('/reports/appointments', { params: filter });
+    const params = {
+      ...filter,
+      startDate: `${filter.startDate}T00:00:00`,
+      endDate: `${filter.endDate}T23:59:59`
+    };
+    const response = await api.get('/reports/appointments', { params });
     return response.data;
   },
   getFinancialStatistics: async (filter: any) => {
-    const response = await api.get('/reports/financial', { params: filter });
+    const params = {
+      ...filter,
+      startDate: `${filter.startDate}T00:00:00`,
+      endDate: `${filter.endDate}T23:59:59`
+    };
+    const response = await api.get('/reports/financial', { params });
     return response.data;
   },
   getPharmacyStatistics: async (filter: any) => {
-    const response = await api.get('/reports/pharmacy', { params: filter });
+    const params = {
+      ...filter,
+      startDate: `${filter.startDate}T00:00:00`,
+      endDate: `${filter.endDate}T23:59:59`
+    };
+    const response = await api.get('/reports/pharmacy', { params });
     return response.data;
   },
 };
