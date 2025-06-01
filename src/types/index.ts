@@ -130,3 +130,76 @@ export interface SaleItem {
   unitPrice: number;
   totalPrice: number;
 }
+
+// Report Statistics Types
+export interface PatientStatistics {
+  totalPatients: number;
+  newPatients: number;
+  returningPatients: number;
+  averageAge: number;
+  genderDistribution: {
+    male: number;
+    female: number;
+    other: number;
+  };
+  monthlyTrends: Array<{
+    date: string;
+    newPatients: number;
+    returningPatients: number;
+  }>;
+}
+
+export interface AppointmentStatistics {
+  totalAppointments: number;
+  completedAppointments: number;
+  cancelledAppointments: number;
+  noShowAppointments: number;
+  typeDistribution: {
+    [key: string]: number;
+  };
+  monthlyTrends: Array<{
+    date: string;
+    total: number;
+    completed: number;
+  }>;
+}
+
+export interface FinancialStatistics {
+  totalRevenue: number;
+  appointmentRevenue: number;
+  pharmacyRevenue: number;
+  averageAppointmentValue: number;
+  monthlyTrends: Array<{
+    date: string;
+    totalRevenue: number;
+    appointmentRevenue: number;
+    pharmacyRevenue: number;
+  }>;
+  topProcedures: Array<{
+    type: string;
+    revenue: number;
+  }>;
+}
+
+export interface PharmacyStatistics {
+  totalSales: number;
+  totalRevenue: number;
+  averageSaleValue: number;
+  topSellingMedicines: Array<{
+    medicineId: number;
+    medicineName: string;
+    quantity: number;
+    revenue: number;
+  }>;
+  monthlyTrends: Array<{
+    date: string;
+    sales: number;
+    revenue: number;
+  }>;
+  stockAlerts: Array<{
+    medicineId: number;
+    medicineName: string;
+    currentStock: number;
+    reorderPoint: number;
+  }>;
+}

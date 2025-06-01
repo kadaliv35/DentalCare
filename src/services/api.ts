@@ -191,39 +191,67 @@ export const pharmacyCustomers = {
 
 export const reports = {
   getPatientStatistics: async (filter: any) => {
-    // Convert dates to LocalDateTime format expected by the backend
+    const startDate = new Date(filter.startDate);
+    const endDate = new Date(filter.endDate);
+    
+    // Set the time to start of day for start date and end of day for end date
+    startDate.setHours(0, 0, 0, 0);
+    endDate.setHours(23, 59, 59, 999);
+    
     const params = {
-      ...filter,
-      startDate: `${filter.startDate}T00:00:00`,
-      endDate: `${filter.endDate}T23:59:59`
+      period: filter.period,
+      startDate: startDate.toISOString(),
+      endDate: endDate.toISOString()
     };
+    
     const response = await api.get('/reports/patients', { params });
     return response.data;
   },
   getAppointmentStatistics: async (filter: any) => {
+    const startDate = new Date(filter.startDate);
+    const endDate = new Date(filter.endDate);
+    
+    startDate.setHours(0, 0, 0, 0);
+    endDate.setHours(23, 59, 59, 999);
+    
     const params = {
-      ...filter,
-      startDate: `${filter.startDate}T00:00:00`,
-      endDate: `${filter.endDate}T23:59:59`
+      period: filter.period,
+      startDate: startDate.toISOString(),
+      endDate: endDate.toISOString()
     };
+    
     const response = await api.get('/reports/appointments', { params });
     return response.data;
   },
   getFinancialStatistics: async (filter: any) => {
+    const startDate = new Date(filter.startDate);
+    const endDate = new Date(filter.endDate);
+    
+    startDate.setHours(0, 0, 0, 0);
+    endDate.setHours(23, 59, 59, 999);
+    
     const params = {
-      ...filter,
-      startDate: `${filter.startDate}T00:00:00`,
-      endDate: `${filter.endDate}T23:59:59`
+      period: filter.period,
+      startDate: startDate.toISOString(),
+      endDate: endDate.toISOString()
     };
+    
     const response = await api.get('/reports/financial', { params });
     return response.data;
   },
   getPharmacyStatistics: async (filter: any) => {
+    const startDate = new Date(filter.startDate);
+    const endDate = new Date(filter.endDate);
+    
+    startDate.setHours(0, 0, 0, 0);
+    endDate.setHours(23, 59, 59, 999);
+    
     const params = {
-      ...filter,
-      startDate: `${filter.startDate}T00:00:00`,
-      endDate: `${filter.endDate}T23:59:59`
+      period: filter.period,
+      startDate: startDate.toISOString(),
+      endDate: endDate.toISOString()
     };
+    
     const response = await api.get('/reports/pharmacy', { params });
     return response.data;
   },

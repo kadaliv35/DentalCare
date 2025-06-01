@@ -16,12 +16,17 @@ export const mockReports: Report[] = [
       averageAge: 35,
       totalVisits: 180,
       cancellationRate: 0.05,
-      chart: [
-        { month: 'Jan', newPatients: 10, returningPatients: 120 },
-        { month: 'Feb', newPatients: 15, returningPatients: 125 },
-        { month: 'Mar', newPatients: 12, returningPatients: 130 },
-        { month: 'Apr', newPatients: 18, returningPatients: 135 },
-        { month: 'May', newPatients: 12, returningPatients: 138 }
+      genderDistribution: {
+        male: 80,
+        female: 65,
+        other: 5
+      },
+      monthlyTrends: [
+        { date: '2025-01', newPatients: 10, returningPatients: 120 },
+        { date: '2025-02', newPatients: 15, returningPatients: 125 },
+        { date: '2025-03', newPatients: 12, returningPatients: 130 },
+        { date: '2025-04', newPatients: 18, returningPatients: 135 },
+        { date: '2025-05', newPatients: 12, returningPatients: 138 }
       ]
     }
   },
@@ -36,13 +41,20 @@ export const mockReports: Report[] = [
       totalAppointments: 85,
       completedAppointments: 75,
       cancelledAppointments: 5,
-      completionRate: 0.88,
-      chart: [
-        { day: 'Mon', appointments: 20, completed: 18 },
-        { day: 'Tue', appointments: 18, completed: 16 },
-        { day: 'Wed', appointments: 15, completed: 14 },
-        { day: 'Thu', appointments: 17, completed: 15 },
-        { day: 'Fri', appointments: 15, completed: 12 }
+      noShowAppointments: 5,
+      typeDistribution: {
+        'check-up': 30,
+        'cleaning': 25,
+        'filling': 15,
+        'root-canal': 10,
+        'extraction': 5
+      },
+      monthlyTrends: [
+        { date: '2025-01', total: 80, completed: 70 },
+        { date: '2025-02', total: 85, completed: 75 },
+        { date: '2025-03', total: 82, completed: 72 },
+        { date: '2025-04', total: 88, completed: 78 },
+        { date: '2025-05', total: 85, completed: 75 }
       ]
     }
   },
@@ -55,20 +67,22 @@ export const mockReports: Report[] = [
     createdAt: '2025-05-01',
     data: {
       totalRevenue: 25000,
-      averagePerPatient: 166.67,
-      chart: [
-        { month: 'Jan', revenue: 20000 },
-        { month: 'Feb', revenue: 22000 },
-        { month: 'Mar', revenue: 21000 },
-        { month: 'Apr', revenue: 23000 },
-        { month: 'May', revenue: 25000 }
+      appointmentRevenue: 20000,
+      pharmacyRevenue: 5000,
+      averageAppointmentValue: 166.67,
+      monthlyTrends: [
+        { date: '2025-01', totalRevenue: 20000, appointmentRevenue: 16000, pharmacyRevenue: 4000 },
+        { date: '2025-02', totalRevenue: 22000, appointmentRevenue: 17000, pharmacyRevenue: 5000 },
+        { date: '2025-03', totalRevenue: 21000, appointmentRevenue: 16500, pharmacyRevenue: 4500 },
+        { date: '2025-04', totalRevenue: 23000, appointmentRevenue: 18000, pharmacyRevenue: 5000 },
+        { date: '2025-05', totalRevenue: 25000, appointmentRevenue: 20000, pharmacyRevenue: 5000 }
       ],
       topProcedures: [
-        { name: 'Cleaning', revenue: 8000 },
-        { name: 'Fillings', revenue: 6000 },
-        { name: 'Root Canal', revenue: 5000 },
-        { name: 'Crowns', revenue: 4000 },
-        { name: 'Other', revenue: 2000 }
+        { type: 'Cleaning', revenue: 8000 },
+        { type: 'Fillings', revenue: 6000 },
+        { type: 'Root Canal', revenue: 5000 },
+        { type: 'Crowns', revenue: 4000 },
+        { type: 'Other', revenue: 2000 }
       ]
     }
   }
